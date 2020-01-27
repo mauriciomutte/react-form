@@ -1,0 +1,6 @@
+@import '~antd/dist/antd.css';
+
+#root {
+  padding: 3em 1em;
+  text-align: center;
+}
