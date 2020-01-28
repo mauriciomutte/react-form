@@ -3,6 +3,7 @@ import { useForm, useField } from 'react-final-form-hooks';
 import { Form, Input, InputNumber, Button } from 'antd';
 import { useMutation } from '@apollo/react-hooks';
 
+import * as S from './styled';
 import FormItem from '../FormItem';
 
 import ADD_USER from '../../schema/ADD_USER';
@@ -30,49 +31,52 @@ const FormComponent = () => {
   const formItemLayout = {
     labelCol: {
       xs: { span: 24 },
-      sm: { span: 8 },
+      sm: { span: 3 },
     },
     wrapperCol: {
       xs: { span: 24 },
-      sm: { span: 10 },
+      sm: { span: 20 },
     },
   };
 
   return (
-    <Form {...formItemLayout} onSubmit={handleSubmit}>
-      <FormItem label="Nome:" placeholder="Nome" field={name} />
-      <FormItem label="CEP:" placeholder="CEP" field={cep} />
-      
-      <Form.Item label="Rua:" required>
-        <Input 
-          {...street.input}
-          placeholder="Rua"
-          style={{ display: 'inline-block', width: '70%' }}
-          required
-        />
+    <S.FormWrap>
+      <S.FormTitle>Cadastre suas informações</S.FormTitle>
+      <Form {...formItemLayout} onSubmit={handleSubmit}>
+        <FormItem label="Nome:" placeholder="Nome" field={name} />
+        <FormItem label="CEP:" placeholder="CEP" field={cep} />
+        
+        <Form.Item label="Rua:" required>
+          <Input 
+            {...street.input}
+            placeholder="Rua"
+            style={{ display: 'inline-block', width: '70%' }}
+            required
+          />
 
-        <InputNumber 
-          {...number.input} 
-          placeholder="Numero"
-          min={1} 
-          style={{ display: 'inline-block', width: '29%', marginLeft: '1%' }}
-          required
-        />
-      </Form.Item>
+          <InputNumber 
+            {...number.input} 
+            placeholder="Numero"
+            min={1} 
+            style={{ display: 'inline-block', width: '29%', marginLeft: '1%' }}
+            required
+          />
+        </Form.Item>
 
-      <FormItem label="UF:" placeholder="UF" field={uf} />
-      <FormItem label="Cidade:" placeholder="Cidade" field={city} />
-      <FormItem label="Bairro:" placeholder="Bairro" field={neighborhood} />
+        <FormItem label="UF:" placeholder="UF" field={uf} />
+        <FormItem label="Cidade:" placeholder="Cidade" field={city} />
+        <FormItem label="Bairro:" placeholder="Bairro" field={neighborhood} />
 
-      <Button 
-        type="primary" 
-        htmlType="submit" 
-        disabled={pristine || submitting}
-        loading={btnLoading}
-      >
-        Cadastrar
-      </Button>
-    </Form>
+        <Button 
+          type="primary" 
+          htmlType="submit" 
+          disabled={pristine || submitting}
+          loading={btnLoading}
+        >
+          Cadastrar
+        </Button>
+      </Form>
+    </S.FormWrap>
   );
 };
 
