@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm, useField } from 'react-final-form-hooks';
-import { Form, Input, InputNumber, Button } from 'antd';
+import { Form, Input, InputNumber, Button, message } from 'antd';
 import { useMutation } from '@apollo/react-hooks';
 
 import * as S from './styled';
@@ -13,8 +13,12 @@ const FormComponent = () => {
 
   const onSubmit = async (values:Object) => {
     setBtnLoading(true);
-    await addTodo({ variables: {...values} });
-    setBtnLoading(false);
+    await addTodo({ variables: {...values} })
+      .then(() => {
+        message.success('Você foi cadastrado com sucesso!');
+        setBtnLoading(false);
+      })
+      .catch(() => message.error('Ocorreu algum erro :('));
   }
 
   const { form, handleSubmit, pristine, submitting } = useForm({onSubmit});
