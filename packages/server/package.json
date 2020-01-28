@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "test": "jest"
   },
   "dependencies": {
     "apollo-server-koa": "^2.9.16",
@@ -16,8 +17,11 @@
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^25.1.0",
     "@types/kcors": "^2.2.3",
     "@types/mongoose": "^5.5.43",
+    "jest": "^25.1.0",
     "mongodb-memory-server": "^6.2.4",
     "nodemon": "^2.0.2",
     "typescript": "^3.7.5"
