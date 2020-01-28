@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@apollo/react-hooks": "^3.1.3",
     "antd": "^3.26.7",
+    "apollo-boost": "^0.4.7",
     "final-form": "^4.18.7",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-final-form-hooks": "^2.0.2",
@@ -15,7 +16,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "ts:check": "tsc"
   },
   "browserslist": {
