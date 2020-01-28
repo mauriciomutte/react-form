@@ -1,9 +1,12 @@
 import React from 'react';
 import Form from './components/Form';
-import './App.css';
+
+import { Main } from './styles';
 
 const App = () => (
-  <Form />
+  <Main>
+    <Form />
+  </Main>
 );
 
 export default App;
