@@ -7,7 +7,7 @@ export const typeDefs = gql`
     name: String!
     cep: String!
     street: String!
-    number: String!
+    number: Int!
     neighborhood: String!
     city: String!
     uf: String!
@@ -23,7 +23,7 @@ export const typeDefs = gql`
       name: String!
       cep: String!
       street: String!
-      number: String!
+      number: Int!
       neighborhood: String!
       city: String!
       uf: String!
@@ -41,7 +41,7 @@ export const resolvers = {
     }
   },
   Mutation: {
-    addUser: async (_:any, user:any) => {
+    addUser: async (_:any, user:Object) => {
       let newUser = await UserModel.findOne({ ...user });
 
       if (newUser) return newUser;
